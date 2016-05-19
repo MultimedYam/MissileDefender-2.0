@@ -1,0 +1,41 @@
+Initialize engine version: 5.4.0b10 (1329e1e590be)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 770 (ID=0x1184)
+    Vendor:   NVIDIA
+    VRAM:     1985 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\ProBuilderCore-Unity5.dll (this message is harmless)
+Loading C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\ProBuilderCore-Unity5.dll into Unity Child Domain
+Platform assembly: C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\ProBuilderMeshOps-Unity5.dll (this message is harmless)
+Loading C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\ProBuilderMeshOps-Unity5.dll into Unity Child Domain
+Platform assembly: C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\KDTree.dll (this message is harmless)
+Loading C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\KDTree.dll into Unity Child Domain
+Platform assembly: C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\Triangle.dll (this message is harmless)
+Loading C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\Triangle.dll into Unity Child Domain
+- Completed reload, in  0.226 seconds
+Platform assembly: C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Yamil\Documents\GitHub\MissileDefender 2.0\CityDefender_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 3286x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.852476 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 5b94 -> priority: 1 
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777}
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.368638 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 227.
+Total: 0.267838 ms (FindLiveObjects: 0.006719 ms CreateObjectMapping: 0.007039 ms MarkObjects: 0.237758 ms  DeleteObjects: 0.012799 ms)
+
