@@ -18,7 +18,8 @@ public class GameInputManager : MonoBehaviour
         {
             if (hit.transform.tag == "Tile")
                 hit.transform.GetComponent<MeshRenderer>().material = SelectedMaterial;
-        }  
+        }
+          
     }
 
     public Transform GetRayHit()

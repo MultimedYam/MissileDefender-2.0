@@ -19,7 +19,7 @@ public class FogPlacer : MonoBehaviour {
     void Update()
     {
         transform.position = new Vector3(builderScript.GetLastTilePosition().x / 2,
-                                                                                                                     0.1f,
+                                                                                                                     0.01f,
                                         (builderScript.GetTilePosition(0, Mathf.CeilToInt(builderScript.GridY / 2)).z + builderScript.GetLastTilePosition().z) / 2);
     }
 }

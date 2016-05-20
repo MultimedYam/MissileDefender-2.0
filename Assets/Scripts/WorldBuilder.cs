@@ -11,6 +11,8 @@ public class WorldBuilder : MonoBehaviour {
     [Range(0, 1)]
     public float Padding;
 
+    public int TotalTiles { get; private set; }
+
     public GameObject GridTile;
     public List<GameObject> WorldGrid;
 
@@ -26,6 +28,7 @@ public class WorldBuilder : MonoBehaviour {
             {
                 var Tile = (GameObject)Instantiate(GridTile, new Vector3(X + (X * Padding), 0, Y + (Y * Padding)), Quaternion.identity);
                 WorldGrid.Add(Tile);
+                TotalTiles++;
                 Tile.transform.SetParent(TileHolder.transform);
             }
         }
