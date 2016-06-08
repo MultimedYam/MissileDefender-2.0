@@ -21,4 +21,12 @@ public class AttackProjectileBehaviour : MonoBehaviour {
             projectileRB.AddForce(this.transform.forward * setThrust);
         }
     }
+
+    void OnColliderEnter(Collider collision)
+    {
+        if (collision.tag == "Tile")
+        {
+
+        }
+    }
 }

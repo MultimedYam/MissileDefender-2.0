@@ -22,57 +22,14 @@ Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefen
 Loading C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\KDTree.dll into Unity Child Domain
 Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\Triangle.dll (this message is harmless)
 Loading C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\Triangle.dll into Unity Child Domain
-- Completed reload, in  0.203 seconds
+- Completed reload, in  0.275 seconds
 Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\System.dll (this message is harmless)
 desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.056394 ms
+UnloadTime: 1.187160 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 44e0 -> priority: 1 
-  Thread -> id: 331c -> priority: 1 
-Initialize engine version: 5.4.0b13 (90500643c620)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Intel(R) HD Graphics 530 (ID=0x191b)
-    Vendor:   Intel
-    VRAM:     2111 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\ProBuilderCore-Unity5.dll (this message is harmless)
-Loading C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\ProBuilderCore-Unity5.dll into Unity Child Domain
-Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\ProBuilderMeshOps-Unity5.dll (this message is harmless)
-Loading C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\ProBuilderMeshOps-Unity5.dll into Unity Child Domain
-Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\KDTree.dll (this message is harmless)
-Loading C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\KDTree.dll into Unity Child Domain
-Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\Triangle.dll (this message is harmless)
-Loading C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\Triangle.dll into Unity Child Domain
-- Completed reload, in  0.051 seconds
-Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\yam20\Documents\GitHub\MissileDefender-2.0\CityDefender_Data\Managed\System.dll (this message is harmless)
-desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-<RI> Initialized touch support.
-UnloadTime: 0.708345 ms
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 5370 -> priority: 1 
-  Thread -> id: 453c -> priority: 1 
-Log: Lonnectgon  {1nection {1} has been disconnected by timeout; address}{::as bee1n .iscon0.0.1:77y 7}i
-meout; address {::ffff:127.0.0.1:52828}
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.363851 ms
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 235.
-Total: 0.299851 ms (FindLiveObjects: 0.016987 ms CreateObjectMapping: 0.012641 ms MarkObjects: 0.253629 ms  DeleteObjects: 0.015407 ms)
-
+  Thread -> id: 37c4 -> priority: 1 
+  Thread -> id: 1f74 -> priority: 1 

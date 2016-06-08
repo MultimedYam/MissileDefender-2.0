@@ -6,7 +6,7 @@ public class GameActions : MonoBehaviour {
 
     public List<GameObject> DefenseTowers = new List<GameObject>();
     public List<GameObject> Cities = new List<GameObject>();
-
+    public GameObject Player;
     public GameObject ActiveTurret;
     public GameObject _WorldBuilder;
     private WorldBuilder _WBScript;
@@ -24,6 +24,7 @@ public class GameActions : MonoBehaviour {
         {
             ActiveTurret = DefenseTowers[0].transform.Find("TurretHousing").gameObject;
             ActiveTurret.transform.FindChild("TurretCamera").gameObject.SetActive(true);
+            
         }
 
         int middleTile = Mathf.CeilToInt(_WBScript.TotalTiles/2);
@@ -45,6 +46,7 @@ public class GameActions : MonoBehaviour {
             {
                 print("Projectile Spawned");
                 ActiveTurret.GetComponent<TurretFiringBehaviour>().FireProjectile();
+                Player.GetComponent<MessageBehaviour>().SendProjectileFired();
             }
         }
     }
