@@ -59,4 +59,9 @@ public class WorldBuilder : MonoBehaviour {
 
         return Vector3.zero;
     }
+
+    public Transform GetTileByPosition(int position)
+    {
+        return WorldGrid[position - 1].transform;
+    }
 }

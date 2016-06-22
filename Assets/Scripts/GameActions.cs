@@ -12,6 +12,8 @@ public class GameActions : MonoBehaviour {
     private WorldBuilder _WBScript;
     private bool gameStarted = false;
 
+    public GameObject inComingProjectile;
+
     void Start()
     {
         _WBScript = _WorldBuilder.GetComponent<WorldBuilder>();
@@ -49,5 +51,17 @@ public class GameActions : MonoBehaviour {
                 Player.GetComponent<MessageBehaviour>().SendProjectileFired();
             }
         }
+    }
+
+    public void LaunchIncomingProjectile(int DestPos)
+    {
+        int TotalTiles = _WorldBuilder.GetComponent<WorldBuilder>().TotalTiles / 2;
+        int actualDestination = DestPos - TotalTiles;
+        int actualSource = Random.Range(TotalTiles / 2, TotalTiles);
+
+        Vector3 source = _WorldBuilder.GetComponent<WorldBuilder>().GetTileByPosition(actualSource).position;
+        Transform destination = _WorldBuilder.GetComponent<WorldBuilder>().GetTileByPosition(actualDestination);
+        GameObject incomingObject = Instantiate(inComingProjectile, source, Quaternion.identity) as GameObject;
+        incomingObject.transform.LookAt(destination);
     }
 }

@@ -6,6 +6,8 @@ public class TileBehaviour : MonoBehaviour {
     private GameObject attachedObject;
     int[] GridPosition = new int[2];
 
+    public GameObject player;
+
 	public void AttachToTile(GameObject TileAttachable)
     {
         if (TileAttachable != null)
@@ -30,5 +32,10 @@ public class TileBehaviour : MonoBehaviour {
     public int[] GetGridPosition()
     {
         return GridPosition;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        player.GetComponent<MessageBehaviour>().ProjecTileHit(GridPosition[0], GridPosition[1]);
     }
 }
