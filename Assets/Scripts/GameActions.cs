@@ -10,7 +10,7 @@ public class GameActions : MonoBehaviour {
     public GameObject ActiveTurret;
     public GameObject _WorldBuilder;
     private WorldBuilder _WBScript;
-    private bool gameStarted = false;
+    public bool gameStarted = false;
 
     public GameObject inComingProjectile;
 
@@ -48,7 +48,7 @@ public class GameActions : MonoBehaviour {
             {
                 print("Projectile Spawned");
                 ActiveTurret.GetComponent<TurretFiringBehaviour>().FireProjectile();
-                Player.GetComponent<MessageBehaviour>().SendProjectileFired();
+//                Player.GetComponent<MessageBehaviour>().SendProjectileFired();
             }
         }
     }

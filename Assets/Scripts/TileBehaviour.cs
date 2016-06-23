@@ -36,6 +36,6 @@ public class TileBehaviour : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        player.GetComponent<MessageBehaviour>().ProjecTileHit(GridPosition[0], GridPosition[1]);
+//        player.GetComponent<MessageBehaviour>().ProjecTileHit(GridPosition[0], GridPosition[1]);
     }
 }

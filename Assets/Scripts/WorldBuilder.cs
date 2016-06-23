@@ -30,6 +30,8 @@ public class WorldBuilder : MonoBehaviour {
                 WorldGrid.Add(Tile);
                 TotalTiles++;
                 Tile.transform.SetParent(TileHolder.transform);
+
+                Tile.GetComponent<TileBehaviour>().SetGridPosition(X, Y);
             }
         }
 	}
