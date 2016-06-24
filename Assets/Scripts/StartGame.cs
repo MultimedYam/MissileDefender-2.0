@@ -38,16 +38,17 @@ public class StartGame : NetworkBehaviour
     public void Init(NetworkClient client)
     {
         m_client = NetworkManager.singleton.client;
-        if (m_client.isConnected)
+        if (isLocalPlayer)
         {
-            NetworkServer.RegisterHandler(StartMessage, OnClientReadyToBegin);
+            m_client.RegisterHandler(StartMessage, OnClientReadyToBegin);
         }
     }
 
     public void SendReadyToBeginMessage()
     {
         var Startmsg = new IntegerMessage(NetworkManager.singleton.client.connection.connectionId);
-        NetworkManager.singleton.client.Send(StartMessage, Startmsg);
+        
+        m_client.Send(StartMessage, Startmsg);
     }
 
     void OnClientReadyToBegin(NetworkMessage netMsg)

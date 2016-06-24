@@ -9,6 +9,7 @@ public class TurretFiringBehaviour : MonoBehaviour
     
     //~~~~~~~~~~~~~~~~
     private GameObject selectedProjectile;
+    private int projectileNum;
     private int selectedBarrel = 0;
 
     //~~~~~~~~~~~~~~~~
@@ -17,6 +18,7 @@ public class TurretFiringBehaviour : MonoBehaviour
         if (ProjectileArray.Count > 0)
         {
             selectedProjectile = ProjectileArray[0];
+            projectileNum = 0;
         }
     }
 
@@ -24,17 +26,40 @@ public class TurretFiringBehaviour : MonoBehaviour
     {
         print("Fire");
         Instantiate(selectedProjectile, TurretBarrels[selectedBarrel].transform.position, this.gameObject.transform.rotation);
+        //StartCoroutine(JerkBarrel());
+
         selectedBarrel = (++selectedBarrel) % TurretBarrels.Count;
     }
 
     public void ChangeProjectile()
     {
+        projectileNum = ++projectileNum % ProjectileArray.Count;
+        selectedProjectile = ProjectileArray[projectileNum];
+        print("Projectile Changed " + projectileNum);
         //listIndex++;
         //if (listIndex >= AvailableMissiles.Count)
         //{
         //    listIndex -= AvailableMissiles.Count;
         //}
         //ActiveMissile = AvailableMissiles[listIndex];
+
     }
     
+    IEnumerator JerkBarrel()
+    {
+        Vector3 pos = TurretBarrels[selectedBarrel].transform.localPosition;
+        for (float timer = 0; timer < 0.4; timer += 0.01f * (Time.deltaTime * 100))
+        {
+            yield return new WaitForSeconds(0.01f);
+
+            TurretBarrels[selectedBarrel].transform.localPosition = Vector3.Lerp(pos, new Vector3(pos.x, pos.y, pos.z - 0.25f), Time.deltaTime);
+        }
+
+        for (float timer = 0; timer < 0.6; timer += 0.01f * (Time.deltaTime * 100))
+        {
+            yield return new WaitForSeconds(0.01f);
+            
+            TurretBarrels[selectedBarrel].transform.localPosition = Vector3.Lerp(TurretBarrels[selectedBarrel].transform.localPosition, pos, Time.deltaTime);
+        }
+    }
 }

@@ -12,19 +12,25 @@ public class GameActions : MonoBehaviour {
     private WorldBuilder _WBScript;
     public bool gameStarted = false;
 
+    int TotalTiles;
+    int activeTurret = 0;
+
     public GameObject inComingProjectile;
 
     void Start()
     {
         _WBScript = _WorldBuilder.GetComponent<WorldBuilder>();
+
     }
 
 	public void StartGame()
     {
         gameStarted = true;
+
+        TotalTiles = _WorldBuilder.GetComponent<WorldBuilder>().TotalTiles;
         if (DefenseTowers.Count > 0)
         {
-            ActiveTurret = DefenseTowers[0].transform.Find("TurretHousing").gameObject;
+            ActiveTurret = DefenseTowers[activeTurret].transform.Find("TurretHousing").gameObject;
             ActiveTurret.transform.FindChild("TurretCamera").gameObject.SetActive(true);
             
         }
@@ -44,24 +50,51 @@ public class GameActions : MonoBehaviour {
     {
         if (gameStarted)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
                 print("Projectile Spawned");
                 ActiveTurret.GetComponent<TurretFiringBehaviour>().FireProjectile();
 //                Player.GetComponent<MessageBehaviour>().SendProjectileFired();
             }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                ActiveTurret.GetComponent<TurretFiringBehaviour>().ChangeProjectile();
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                activeTurret = ++activeTurret % DefenseTowers.Count;
+                ActiveTurret.transform.FindChild("TurretCamera").gameObject.SetActive(false);
+                ActiveTurret = DefenseTowers[activeTurret].transform.Find("TurretHousing").gameObject;
+                ActiveTurret.transform.FindChild("TurretCamera").gameObject.SetActive(true);
+            }
+
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            print("Launch Incoming");
+            LaunchIncomingProjectile(Random.Range(TotalTiles/ 2, TotalTiles));
         }
     }
 
     public void LaunchIncomingProjectile(int DestPos)
     {
-        int TotalTiles = _WorldBuilder.GetComponent<WorldBuilder>().TotalTiles / 2;
-        int actualDestination = DestPos - TotalTiles;
+        int actualDestination = TotalTiles - DestPos;
         int actualSource = Random.Range(TotalTiles / 2, TotalTiles);
 
         Vector3 source = _WorldBuilder.GetComponent<WorldBuilder>().GetTileByPosition(actualSource).position;
+        print("Source set.");
         Transform destination = _WorldBuilder.GetComponent<WorldBuilder>().GetTileByPosition(actualDestination);
+        print("Destination set.");
         GameObject incomingObject = Instantiate(inComingProjectile, source, Quaternion.identity) as GameObject;
         incomingObject.transform.LookAt(destination);
+    }
+
+    public Camera getActiveCamera()
+    {
+        return ActiveTurret.transform.FindChild("TurretCamera").GetComponent<Camera>();
     }
 }

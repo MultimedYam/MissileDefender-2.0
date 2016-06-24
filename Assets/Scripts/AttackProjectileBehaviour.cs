@@ -22,11 +22,22 @@ public class AttackProjectileBehaviour : MonoBehaviour {
         }
     }
 
-    void OnColliderEnter(Collider collision)
+    void Update()
     {
-        if (collision.tag == "Tile")
+        if (gameObject.transform.position.y < 0 || gameObject.transform.position.y > 10)
         {
+            Destroy(gameObject);
+        }
+    }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        Destroy(this.gameObject);
+
+        if (collision.gameObject.tag == "Structure")
+        {
+            print("Collided");
+            Destroy(collision.gameObject);
         }
     }
 }
