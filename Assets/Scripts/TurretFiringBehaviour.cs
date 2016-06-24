@@ -8,7 +8,7 @@ public class TurretFiringBehaviour : MonoBehaviour
     public List<GameObject> TurretBarrels = new List<GameObject>();
     
     //~~~~~~~~~~~~~~~~
-    private GameObject selectedProjectile;
+    public GameObject selectedProjectile;
     private int projectileNum;
     private int selectedBarrel = 0;
 

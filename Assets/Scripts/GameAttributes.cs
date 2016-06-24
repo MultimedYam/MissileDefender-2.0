@@ -6,10 +6,10 @@ public class GameAttributes : MonoBehaviour {
     public int MaxAllowedCities;
     public int MaxAllowedDefense;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(transform.gameObject);
-    }
+    //void Awake()
+    //{
+    //    DontDestroyOnLoad(transform.gameObject);
+    //}
 
 	// Use this for initialization
 	void Start ()

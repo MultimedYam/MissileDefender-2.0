@@ -13,7 +13,7 @@ public class GameActions : MonoBehaviour {
     public bool gameStarted = false;
 
     int TotalTiles;
-    int activeTurret = 0;
+    public int activeTurret = 0;
 
     public GameObject inComingProjectile;
 
