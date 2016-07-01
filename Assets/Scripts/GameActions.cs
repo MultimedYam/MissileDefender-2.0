@@ -74,6 +74,18 @@ public class GameActions : MonoBehaviour {
     {
         if (gameStarted)
         {
+            if (Time.timeScale != 0)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+
+
             if (Cities.Count == 0)
             {
                 EndGame(GameFinisher.loss);
