@@ -14,42 +14,42 @@ public class StartGame : NetworkBehaviour
 
     NetworkClient m_client;
 
-    void Awake()
-    {
-        if (NetworkManager.singleton.client != null)
-        Init(NetworkManager.singleton.client);
-    }
+    //void Awake()
+    //{
+    //    if (NetworkManager.singleton.client != null)
+    //    Init(NetworkManager.singleton.client);
+    //}
 
-    void Update()
-    {
-        if (PlayerReadyState == true && OtherPlayerReadyState == true)
-        {
-            //Continue to game screen
-            //GameActions.StartGame
-            GameActions Actor = GameObject.Find("Game Manager").GetComponent<GameActions>();
+    //void Update()
+    //{
+    //    if (PlayerReadyState == true && OtherPlayerReadyState == true)
+    //    {
+    //        //Continue to game screen
+    //        //GameActions.StartGame
+    //        GameActions Actor = GameObject.Find("Game Manager").GetComponent<GameActions>();
 
-            if( Actor.gameStarted == false)
-            {
-                Actor.StartGame();
-            }
-        }
-    }
+    //        if( Actor.gameStarted == false)
+    //        {
+    //            Actor.StartGame();
+    //        }
+    //    }
+    //}
 
-    public void Init(NetworkClient client)
-    {
-        m_client = NetworkManager.singleton.client;
-        if (isLocalPlayer)
-        {
-            NetworkServer.RegisterHandler(StartMessage, OnClientReadyToBegin);
-        }
-    }
+    //public void Init(NetworkClient client)
+    //{
+    //    m_client = NetworkManager.singleton.client;
+    //    if (isLocalPlayer)
+    //    {
+    //        NetworkServer.RegisterHandler(StartMessage, OnClientReadyToBegin);
+    //    }
+    //}
 
-    public void SendReadyToBeginMessage()
-    {
-        var Startmsg = new IntegerMessage(NetworkManager.singleton.client.connection.connectionId);
+    //public void SendReadyToBeginMessage()
+    //{
+    //    var Startmsg = new IntegerMessage(NetworkManager.singleton.client.connection.connectionId);
 
-        //NetworkManager.singleton.client.Send(StartMessage, Startmsg);
-    }
+    //    //NetworkManager.singleton.client.Send(StartMessage, Startmsg);
+    //}
 
     void OnClientReadyToBegin(NetworkMessage netMsg)
     {

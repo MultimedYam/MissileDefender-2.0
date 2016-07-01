@@ -6,6 +6,7 @@ public class AttackProjectileBehaviour : MonoBehaviour {
     public float setThrust;
 
     Rigidbody projectileRB;
+    public int Desto;
 
 	void Start ()
     {
@@ -17,27 +18,16 @@ public class AttackProjectileBehaviour : MonoBehaviour {
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f / 100f);
+            yield return new WaitForSeconds(0.01f);
             projectileRB.AddForce(this.transform.forward * setThrust);
         }
     }
 
     void Update()
     {
-        if (gameObject.transform.position.y < 0 || gameObject.transform.position.y > 10)
+        if (gameObject.transform.position.y < 0 || gameObject.transform.position.y > 12)
         {
             Destroy(gameObject);
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Destroy(this.gameObject);
-
-        if (collision.gameObject.tag == "Structure")
-        {
-            print("Collided");
-            Destroy(collision.gameObject);
         }
     }
 }

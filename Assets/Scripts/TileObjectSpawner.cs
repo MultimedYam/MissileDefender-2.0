@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class TileObjectSpawner : MonoBehaviour {
@@ -10,7 +11,9 @@ public class TileObjectSpawner : MonoBehaviour {
 
 
     private int CitiesSpawned = 0;
+    public Text Cities;
     private int DefenseSpawned = 0;
+    public Text Defense;
     private GameObject spawn = null;
     private Vector3 pos;
     private Transform hit;
@@ -25,6 +28,9 @@ public class TileObjectSpawner : MonoBehaviour {
 
 
         hit = GetComponent<GameInputManager>().GetRayHit();
+
+        Cities.text = "Cities: " + CitiesSpawned + "/" + GameManager.GetComponent<GameAttributes>().MaxAllowedCities;
+        Defense.text = "Turrets: " + DefenseSpawned + "/" + GameManager.GetComponent<GameAttributes>().MaxAllowedDefense;
     }
 
     public void MoveTileObject()
@@ -51,9 +57,6 @@ public class TileObjectSpawner : MonoBehaviour {
 
     public void DropTileObject()
     {
-        print("Placed City");
-
-
         if (hit != null && hit.tag == "Tile")
         {
             if (hit.GetComponent<TileBehaviour>().IsTaken() == false)

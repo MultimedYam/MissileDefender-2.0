@@ -14,34 +14,20 @@ public class DefenseProjectileBehaviour : MonoBehaviour {
 
     private float distanceTravelled;
     private Vector3 origin;
-    private Vector3 target;
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     void Start()
     {
-        StartCoroutine(AccelerateMissile(Thrust));
 
         rb = this.gameObject.GetComponent<Rigidbody>();
+
+        StartCoroutine(AccelerateMissile(Thrust));
         origin = transform.position;
     }
 
-    /*void Update()
-	{
-		if (target != null)
-		{
-			rotation = Quaternion.LookRotation(target - transform.position);
-			this.transform.LookAt(target, Vector3.back);
-		}
-	}*/
-
-    //public void SetOrigin(Vector3 _origin)
-    //{
-    //    origin = _origin;
-    //    rb = this.gameObject.GetComponent<Rigidbody>();
-    //}
-
     void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("Collided");
         if (collision.gameObject.tag == "ExplosionSphere")
         {
             this.Explode();
@@ -52,11 +38,11 @@ public class DefenseProjectileBehaviour : MonoBehaviour {
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f / 100f);
+            yield return new WaitForSeconds(1f/100f);
+            
             distanceTravelled = Vector3.Distance(origin, this.transform.position);
 
             rb.AddForce(this.transform.forward * setThrust);
-
             if (distanceTravelled > DistanceToExplode)
             {
                 Explode();
@@ -64,10 +50,6 @@ public class DefenseProjectileBehaviour : MonoBehaviour {
         }
     }
 
-    public void SetTarget(Vector3 target)
-    {
-        this.target = target;
-    }
 
     public void Explode()
     {

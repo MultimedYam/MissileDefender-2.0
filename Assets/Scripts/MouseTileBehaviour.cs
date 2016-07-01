@@ -5,9 +5,18 @@ public class MouseTileBehaviour : MonoBehaviour
 {
     public Material del;
 
+    GameObject GM;
+
+    void Start()
+    {
+        GM = GameObject.Find("Game Manager");
+    }
 
     void OnMouseExit()
     {
-        GetComponent<MeshRenderer>().material = del;
+        if (GM.GetComponent<GameActions>().gameStarted != true)
+        {
+            GetComponent<MeshRenderer>().material = del;
+        }
     }
 }

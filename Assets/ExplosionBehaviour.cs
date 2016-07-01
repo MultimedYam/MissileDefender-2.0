@@ -40,4 +40,9 @@ public class ExplosionBehaviour : MonoBehaviour
         }
         Destroy(this.gameObject);
     }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        Destroy(collision.gameObject);
+    }
 }

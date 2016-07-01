@@ -17,6 +17,10 @@ public class GameActions : MonoBehaviour {
 
     public GameObject inComingProjectile;
 
+    public GameObject GameCanvas;
+
+    public enum GameFinisher { win, loss, exit };
+
     void Start()
     {
         _WBScript = _WorldBuilder.GetComponent<WorldBuilder>();
@@ -44,17 +48,41 @@ public class GameActions : MonoBehaviour {
             selectedTile.transform.Rotate(new Vector3(180, 0, 0));
         }
 
+        GameObject.Find("AI").GetComponent<AIBehaviour>().AssignAIAttributes();
+    }
+
+    public void EndGame(GameFinisher finisher)
+    {
+        switch(finisher)
+        {
+            case GameFinisher.win:
+                {
+                    gameStarted = false;
+                    OpenWinScreen();
+                    break;
+                }
+            case GameFinisher.loss:
+                {
+                    gameStarted = false;
+                    OpenLossScreen();
+                    break;
+                }           
+        }
     }
 
     void Update()
     {
         if (gameStarted)
         {
+            if (Cities.Count == 0)
+            {
+                EndGame(GameFinisher.loss);
+            }
+
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
-                print("Projectile Spawned");
                 ActiveTurret.GetComponent<TurretFiringBehaviour>().FireProjectile();
-//                Player.GetComponent<MessageBehaviour>().SendProjectileFired();
+//                Player.GetComponent<MessageBehaviour>().SendProjectileFired();  Networking message
             }
 
             if (Input.GetKeyDown(KeyCode.A))
@@ -62,6 +90,7 @@ public class GameActions : MonoBehaviour {
                 ActiveTurret.GetComponent<TurretFiringBehaviour>().ChangeProjectile();
             }
 
+            //Debug command to spawn incoming missile
             if (Input.GetKeyDown(KeyCode.D))
             {
                 activeTurret = ++activeTurret % DefenseTowers.Count;
@@ -70,31 +99,50 @@ public class GameActions : MonoBehaviour {
                 ActiveTurret.transform.FindChild("TurretCamera").gameObject.SetActive(true);
             }
 
-
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            print("Launch Incoming");
-            LaunchIncomingProjectile(Random.Range(TotalTiles/ 2, TotalTiles));
+            LaunchIncomingProjectile(Random.Range(1, TotalTiles / 2));
         }
     }
 
     public void LaunchIncomingProjectile(int DestPos)
     {
-        int actualDestination = TotalTiles - DestPos;
+        int actualDestination = DestPos;
         int actualSource = Random.Range(TotalTiles / 2, TotalTiles);
 
         Vector3 source = _WorldBuilder.GetComponent<WorldBuilder>().GetTileByPosition(actualSource).position;
-        print("Source set.");
         Transform destination = _WorldBuilder.GetComponent<WorldBuilder>().GetTileByPosition(actualDestination);
-        print("Destination set.");
         GameObject incomingObject = Instantiate(inComingProjectile, source, Quaternion.identity) as GameObject;
         incomingObject.transform.LookAt(destination);
+        incomingObject.GetComponent<AttackProjectileBehaviour>().Desto = actualDestination;
     }
 
     public Camera getActiveCamera()
     {
         return ActiveTurret.transform.FindChild("TurretCamera").GetComponent<Camera>();
+    }
+
+
+
+    public void OpenWinScreen()
+    {
+        GameCanvas.GetComponent<MenuScreens>().WinScreen();
+    }
+
+    public void OpenLossScreen()
+    {
+        GameCanvas.GetComponent<MenuScreens>().LossScreen();
+    }
+
+    public void PauseGame()
+    {
+        GameCanvas.GetComponent<MenuScreens>().PauseScreen();
+    }
+
+    public void ResumeGame()
+    {
+        GameCanvas.GetComponent<MenuScreens>().ClosePauseScreen();
     }
 }

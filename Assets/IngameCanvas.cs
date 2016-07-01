@@ -8,7 +8,8 @@ public class IngameCanvas : MonoBehaviour {
     public Text SelectedTurret;
     public Text SelectedProjectile;
     public Text CitiesLeft;
-    public Text TurretsLeft;
+
+    public Text Notification;
     // Use this for initialization
     void Start () {
 	
@@ -19,14 +20,21 @@ public class IngameCanvas : MonoBehaviour {
     {
         if (GameManager.GetComponent<GameActions>().gameStarted)
         {
-            GetComponent<Canvas>().worldCamera = GameManager.GetComponent<GameActions>().getActiveCamera();
+            Canvas canvas = GetComponent<Canvas>();
+            canvas.enabled = true;
+            canvas.worldCamera = GameManager.GetComponent<GameActions>().getActiveCamera();
+            canvas.planeDistance = 0.02f;
 
             SelectedTurret.text = GameManager.GetComponent<GameActions>().activeTurret.ToString();
             SelectedProjectile.text = GameManager.GetComponent<GameActions>().ActiveTurret.GetComponent<TurretFiringBehaviour>().selectedProjectile.ToString();
 
             CitiesLeft.text = GameManager.GetComponent<GameActions>().Cities.Count.ToString();
-            TurretsLeft.text = GameManager.GetComponent<GameActions>().DefenseTowers.Count.ToString();
 
         }
 	}
+
+    public void SetNotificationText(string text)
+    {
+
+    }
 }

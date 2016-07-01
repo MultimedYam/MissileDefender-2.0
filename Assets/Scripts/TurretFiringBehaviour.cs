@@ -24,9 +24,7 @@ public class TurretFiringBehaviour : MonoBehaviour
 
     public void FireProjectile()
     {
-        print("Fire");
         Instantiate(selectedProjectile, TurretBarrels[selectedBarrel].transform.position, this.gameObject.transform.rotation);
-        //StartCoroutine(JerkBarrel());
 
         selectedBarrel = (++selectedBarrel) % TurretBarrels.Count;
     }
@@ -43,23 +41,5 @@ public class TurretFiringBehaviour : MonoBehaviour
         //}
         //ActiveMissile = AvailableMissiles[listIndex];
 
-    }
-    
-    IEnumerator JerkBarrel()
-    {
-        Vector3 pos = TurretBarrels[selectedBarrel].transform.localPosition;
-        for (float timer = 0; timer < 0.4; timer += 0.01f * (Time.deltaTime * 100))
-        {
-            yield return new WaitForSeconds(0.01f);
-
-            TurretBarrels[selectedBarrel].transform.localPosition = Vector3.Lerp(pos, new Vector3(pos.x, pos.y, pos.z - 0.25f), Time.deltaTime);
-        }
-
-        for (float timer = 0; timer < 0.6; timer += 0.01f * (Time.deltaTime * 100))
-        {
-            yield return new WaitForSeconds(0.01f);
-            
-            TurretBarrels[selectedBarrel].transform.localPosition = Vector3.Lerp(TurretBarrels[selectedBarrel].transform.localPosition, pos, Time.deltaTime);
-        }
     }
 }
